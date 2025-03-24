@@ -1,31 +1,31 @@
 {
   "expo": {
-    "name": "Plataforma de resevas",
+    "name": "ReserveJá",
     "slug": "reservation-platform-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./src/assets/images/logo.png",
+    "icon": "./src/assets/images/logo-bg.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
-      "image": "./src/assets/images/logo.png",
+      "image": "./src/assets/images/logo-bg.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#5500ff"
     },
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./src/assets/images/logo.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./src/assets/images/logo-bg.png",
+        "backgroundColor": "#5500ff"
       }
     },
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./src/assets/images/logo.png"
+      "favicon": "./src/assets/images/logo-bg.png"
     },
     "plugins": [
       "expo-router"

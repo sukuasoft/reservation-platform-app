@@ -23,7 +23,7 @@ export default function Index() {
             source={require("../assets/images/icon.png")}
           />
         </View>
-        <Text style={indexStyles.name}>Plataforma de reservas</Text>
+        <Text style={indexStyles.name}>ReserveJá</Text>
       </View>
       <LoadGif />
     </View>

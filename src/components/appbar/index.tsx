@@ -11,7 +11,7 @@ export default function Appbar() {
           style={appbarStyles.logo}
           source={require("@/assets/images/icon.png")}
         />
-        <Text style={appbarStyles.nameApp}>Plataforma de reservas</Text>
+        <Text style={appbarStyles.nameApp}>ReserveJá</Text>
       </View>
       <View style={appbarStyles.rightActions}>
         <TextButton textColor="#ff0000" onPress={()=>{
