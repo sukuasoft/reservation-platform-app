@@ -8,7 +8,7 @@ export default function Index() {
 
     useEffect(()=>{
         const interval = setTimeout(()=>{
-            router.replace('/services');
+            router.replace('/reservations');
         }, 500);
         return ()=>{
             clearTimeout(interval);
