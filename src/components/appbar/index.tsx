@@ -1,6 +1,7 @@
 import { View, Image, Text } from "react-native";
 import appbarStyles from "./style";
-import Button from "../button";
+import TextButton from "../text-button";
+import { router } from "expo-router";
 
 export default function Appbar() {
   return (
@@ -13,7 +14,9 @@ export default function Appbar() {
         <Text style={appbarStyles.nameApp}>Plataforma de reservas</Text>
       </View>
       <View style={appbarStyles.rightActions}>
-        <Button backgroundColor="#ff0000">Sair</Button>
+        <TextButton textColor="#ff0000" onPress={()=>{
+            router.replace('/')
+        }}>Sair</TextButton>
       </View>
     </View>
   );
