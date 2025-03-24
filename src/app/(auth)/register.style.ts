@@ -2,7 +2,6 @@ import { StyleSheet } from "react-native";
 
 const  registerStyles = StyleSheet.create({
     container: {
-        
         paddingHorizontal: 20, 
         paddingVertical: 15
     }, 

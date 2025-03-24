@@ -2,7 +2,6 @@ import { StyleSheet } from "react-native";
 
 const bottomNavigationStyles = StyleSheet.create({
   container: {
-    marginTop: "auto",
     paddingHorizontal: 30,
     paddingVertical: 15,
     justifyContent: "center",

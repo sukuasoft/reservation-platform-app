@@ -1,4 +1,4 @@
-import {Text, View} from 'react-native';
+import {Text, View, Image, ScrollView} from 'react-native';
 import registerStyles from './register.style';
 import Appbar from '@/components/appbar';
 import Input from '@/components/input';
@@ -10,9 +10,17 @@ import Select from '@/components/select';
 import SelectItem from '@/components/select/item';
 
 export default function Register (){
-    return (<View>
+    return (<View style={{
+        height: '100%', 
+    }}>
         <Appbar />
+        <ScrollView>
         <View style={registerStyles.container}>
+                <Image style={{
+                            width: 100, 
+                            height: 100, 
+                            margin: 'auto'
+                        }} source={require('@/assets/images/hello.png')} />
             <Text style={registerStyles.titleHeader}>Crie uma conta</Text>
             <View style={registerStyles.formContainer}>
                 <Input placeholder='Nome completo'/>
@@ -41,5 +49,6 @@ export default function Register (){
             </View>
 
         </View>
+        </ScrollView>
     </View>)
 }

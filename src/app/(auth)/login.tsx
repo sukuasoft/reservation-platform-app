@@ -1,4 +1,4 @@
-import {Text, View} from 'react-native';
+import {Text, View, Image, ScrollView} from 'react-native';
 import loginStyles from './login.style';
 import Appbar from '@/components/appbar';
 import Input from '@/components/input';
@@ -7,9 +7,17 @@ import TextButton from '@/components/text-button';
 import { router } from 'expo-router';
 
 export default function Login (){
-    return (<View>
+    return (<View style={{
+        height: '100%'
+    }}>
         <Appbar />
+        <ScrollView>
         <View style={loginStyles.container}>
+            <Image style={{
+                width: 100, 
+                height: 100, 
+                margin: 'auto'
+            }} source={require('@/assets/images/login.png')} />
             <Text style={loginStyles.titleHeader}>Entre em sua conta</Text>
             <View style={loginStyles.formContainer}>
                 <Input placeholder='E-mail'/>
@@ -32,5 +40,6 @@ export default function Login (){
             </View>
 
         </View>
+        </ScrollView>
     </View>)
 }
