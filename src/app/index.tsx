@@ -8,8 +8,8 @@ export default function Index() {
 
     useEffect(()=>{
         const interval = setTimeout(()=>{
-            router.replace('/login');
-        }, 2000);
+            router.replace('/home');
+        }, 500);
         return ()=>{
             clearTimeout(interval);
         }

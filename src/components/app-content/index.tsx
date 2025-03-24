@@ -9,5 +9,8 @@ type AppContentProps = {
 export default function AppContent ({children}:AppContentProps){
     return (<ScrollView style={appContentStyles.container}>
         {children}
+        <View style={{
+            height: 30
+        }}></View>
     </ScrollView>)
 }
