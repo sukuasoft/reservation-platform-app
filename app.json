@@ -32,6 +32,21 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "a2edca03-fc34-4730-9bea-0594b1df1b53"
+      }
+    },
+    "owner": "sukuasoft",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/a2edca03-fc34-4730-9bea-0594b1df1b53"
     }
   }
 }
