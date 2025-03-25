@@ -18,7 +18,8 @@ const serviceCardStyles = StyleSheet.create({
     header: {
         flexDirection: 'row', 
         marginTop: 5,
-        marginBottom: 10 
+        marginBottom: 10 , 
+        gap: 10
 
     },
     title: {

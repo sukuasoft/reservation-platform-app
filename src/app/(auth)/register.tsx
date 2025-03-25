@@ -8,7 +8,7 @@ import { router } from "expo-router";
 import Select from "@/components/select";
 import SelectItem from "@/components/select/item";
 import Toast from "react-native-toast-message";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useApp } from "@/hooks/app";
 import useApi from "@/hooks/api";
 import LoadGif from "@/components/load-gif";
@@ -24,7 +24,7 @@ interface FormDataRegister {
 
 export default function Register() {
   const { post, get } = useApi();
-  const { saveToken, setUser } = useApp();
+  const { saveToken, token, setUser } = useApp();
 
   const [formData, setFormData] = useState<FormDataRegister>({
     name: "",
@@ -51,9 +51,18 @@ export default function Register() {
 
     if (data.status == 200 || data.status == 201) {
       saveToken(data.data.token);
+    } else {
+      Toast.show({
+        type: "error",
+        text1: "Houve um erro, este pode já ter sido cadastrado",
+      });
+    }
 
-      await delayTime(0.8);
+    setIsFetch(false);
+  }
 
+  async function getMe() {
+    if (token) {
       const _data = await get("/me");
 
       if (_data.status == 200) {
@@ -71,15 +80,11 @@ export default function Register() {
         router.replace("/home");
         return;
       }
-    } else {
-      Toast.show({
-        type: "error",
-        text1: "Houve um erro, este pode já ter sido cadastrado",
-      });
     }
-
-    setIsFetch(false);
   }
+  useEffect(() => {
+    getMe();
+  }, [token]);
 
   return (
     <View
@@ -144,7 +149,7 @@ export default function Register() {
               />
             )}
             <Input
-               secureTextEntry={true} 
+              secureTextEntry={true}
               onChangeText={(value) => {
                 setFormData({
                   ...formData,
@@ -154,13 +159,12 @@ export default function Register() {
               placeholder="Senha"
             />
             <Button
-            disabled={isFetch} onPress={register}
-            text='Registrar'
-            icon=  {isFetch && <LoadGif width={20} height={20} />}
-           / >
-               
-          
-           
+              disabled={isFetch}
+              onPress={register}
+              text="Registrar"
+              icon={isFetch && <LoadGif width={20} height={20} />}
+            />
+
             <View
               style={{
                 flexDirection: "row",
@@ -170,10 +174,11 @@ export default function Register() {
               }}
             >
               <Text>Já possui uma conta?</Text>
-              <TextButton   onPress={() => {
-                router.replace("/login");
-              }} >
-               
+              <TextButton
+                onPress={() => {
+                  router.replace("/login");
+                }}
+              >
                 Entre agora
               </TextButton>
             </View>

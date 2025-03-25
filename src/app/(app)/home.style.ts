@@ -14,7 +14,12 @@ const homeStyles = StyleSheet.create({
   serviceExplorer: {
     marginTop: 20,
     marginBottom: 20, 
-    backgroundColor: "#eeeeee",
+    backgroundColor: "white",
+    elevation: 1,
+    shadowColor: "#000000",
+    shadowOffset: { width: 0, height: -10 }, // 👆 Sombra para cima (iOS)
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
     paddingHorizontal: 15,
     paddingVertical: 10,
     borderRadius: 10,

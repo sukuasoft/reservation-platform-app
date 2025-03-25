@@ -29,6 +29,6 @@ export default function Services(){
             </View>
         </AppContent>
         <BottomNavigation pageId={1}/>
-        <ServiceBottomSheet />
+        {/*<ServiceBottomSheet /> */}
     </View>)
 }

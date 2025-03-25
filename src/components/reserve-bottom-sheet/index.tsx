@@ -1,11 +1,16 @@
-import MyBottomSheet from "../bottom-sheet"
+import MyBottomSheet, { MyBottomSheetProps } from "../bottom-sheet"
 import Button from "../button"
 import Input from "../input"
 import { Text, View} from "react-native"
 import reserveBottomSheetStyles from "./style"
 
-export default function ReserveBottomSheet (){
-    return  (<MyBottomSheet snapPoints={['55%', '60%']} >
+
+
+type ReserveBottomSheetProps =  MyBottomSheetProps &{
+};
+
+export default function ReserveBottomSheet ({onCloseSheet}: ReserveBottomSheetProps){
+    return  (<MyBottomSheet onCloseSheet={onCloseSheet} snapPoints={['55%', '60%']} >
         <View style={reserveBottomSheetStyles.container}>
         <Text style={reserveBottomSheetStyles.headline}>Criar reserva</Text>
         <View>
@@ -24,7 +29,7 @@ export default function ReserveBottomSheet (){
                 fontSize: 12
             }}>0 Kz</Text>
         </View>
-        <Button>Reservar</Button>
+        <Button text='Reservar'/> 
         </View>
     </MyBottomSheet>)
 }

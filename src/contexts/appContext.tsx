@@ -5,7 +5,7 @@ import { router } from "expo-router";
 import { createContext, useEffect, useState } from "react";
 
 export interface IAppContext {
-  token: string;
+  token: string | null;
   setToken: (token: string) => void;
   saveToken: (token: string) => void;
   apiUrl: string;
@@ -22,7 +22,7 @@ interface IAppProviderProps {
 }
 
 export function AppProvider({ children, apiUrl }: IAppProviderProps) {
-  const [token, setToken] = useState<string>("");
+  const [token, setToken] = useState<string | null>(null);
   const [user, setUser] = useState<User | null>(null);
 
   function saveToken(_token: string) {
@@ -34,8 +34,6 @@ export function AppProvider({ children, apiUrl }: IAppProviderProps) {
     AsyncStorage.removeItem('token');
     setUser(null);
     setToken('');
-
-    //await delayTime(0.8);
     router.replace("/login");
   }
 

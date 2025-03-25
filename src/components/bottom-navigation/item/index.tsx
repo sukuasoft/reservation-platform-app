@@ -7,20 +7,26 @@ type BottomNavigationItemProps  = {
     source?: ImageSourcePropType | undefined, 
     title:string,
     current?:boolean, 
-    onClick?:()=>void;
+    onClick?:()=>void, 
+    active?:boolean
 }
 
-export default function BottomNavigationItem ({source, title, current=false, onClick}:BottomNavigationItemProps){
+export default function BottomNavigationItem ({source, title, active=true,current=false, onClick}:BottomNavigationItemProps){
    
    
     return (
 
-        <TouchableOpacity onPress={onClick}>
+        <TouchableOpacity  disabled={!active} onPress={()=>{
+            if (active && onClick){
+                onClick();
+            }
+        }}>
         <View 
     
         style={{
             ...bottomNavigationItemStyles.container, 
-            backgroundColor: current ? AppColors.primaryLight: '#eeeeee'
+            backgroundColor: current ? AppColors.primaryLight: '#eeeeee', 
+            opacity:active ? 1 : 0.5
         }}>
             <Image source={source} 
             style={{

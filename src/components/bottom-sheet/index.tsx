@@ -2,30 +2,43 @@ import BottomSheet, {
   BottomSheetProps,
   BottomSheetView,
 } from "@gorhom/bottom-sheet";
-import { useMemo, useRef } from "react";
+import { forwardRef, useMemo, useRef } from "react";
 import bottomSheetStyles from "./styles";
-import { View } from "react-native";
+import { Pressable, View, Text } from "react-native";
+import { TouchableWithoutFeedback } from "react-native-gesture-handler";
+import TextButton from "../text-button";
 
-type MyBottomSheetProps = BottomSheetProps & {};
+export type MyBottomSheetProps =  {
+  onCloseSheet?:()=>void;
+  snapPoints?: any[],
+  children?:React.ReactNode
+};
 
 export default function MyBottomSheet({
   children,
-  ...rest
+  onCloseSheet, 
+  snapPoints,
 }: MyBottomSheetProps) {
-  const bottomSheetRef = useRef(null);
-
-
-
   return (
     <View style={bottomSheetStyles.container}>
       <BottomSheet
         index={1}
         style={bottomSheetStyles.containerContent}
-        ref={bottomSheetRef}
-        {...rest}
-       
+    snapPoints={snapPoints}
       >
-        <BottomSheetView>{children}</BottomSheetView>
+        <BottomSheetView>
+          <View>
+            <TextButton textColor="#ff0000" style={{
+              marginLeft: 'auto',
+              
+            }} onPress={()=>{
+              if(onCloseSheet){
+                onCloseSheet();
+              }
+            }}>X</TextButton>
+          {children}
+          </View>
+        </BottomSheetView>
       </BottomSheet>
     </View>
   );

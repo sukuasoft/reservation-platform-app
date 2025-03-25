@@ -10,9 +10,9 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Index() {
   const { get } = useApi();
-  const { setUser , setToken } = useApp();
+  const { setUser , setToken, token } = useApp();
 
-  async function init() {
+  async function initToken() {
     const _token = await AsyncStorage.getItem("token");
 
     if (_token == null) {
@@ -21,8 +21,10 @@ export default function Index() {
     }
     setToken(_token ?? "");
 
-    await delayTime(0.8);
+  }
 
+  async function initApp (){
+    if (token == null) return;
     const data = await get("/me");
 
     if (data.status == 200) {
@@ -39,8 +41,13 @@ export default function Index() {
 
     router.replace("/login");
   }
+
+  useEffect(()=>{
+    initApp();
+  }, [token]);
+
   useEffect(() => {
-    init();
+    initToken();
   }, []);
   return (
     <View style={indexStyles.container}>
