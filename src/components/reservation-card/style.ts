@@ -48,7 +48,7 @@ fontSize: 12,
     status: {
         marginLeft: 'auto', 
         flexDirection:'row', 
-        gap: 3, 
+        gap: 6, 
         alignItems:'center'
     },
 
