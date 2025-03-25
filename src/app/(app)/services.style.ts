@@ -8,6 +8,7 @@ const servicesStyles = StyleSheet.create({
         marginBottom: 15
     }, 
     services: {
+        marginTop: 5, 
         flexDirection: 'column', 
         gap: 10
     }
