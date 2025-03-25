@@ -5,6 +5,7 @@ import BottomNavigation from "@/components/bottom-navigation";
 import AppContent from "@/components/app-content";
 import TextButton from "@/components/text-button";
 import ServiceProviderCard from "@/components/service-provider-card";
+import ServiceBottomSheet from "@/components/service-bottom-sheet";
 
 export default function Services(){
     return (<View  style={{
@@ -20,13 +21,14 @@ export default function Services(){
             <View style={servicesStyles.services}> 
 
             {
-                    [1, 2, 3, 4, 5, 6,].map(()=>{
-                       return ( <ServiceProviderCard />)
+                    [1, 2, 3, 4, 5, 6,].map((value, key)=>{
+                       return ( <ServiceProviderCard key={key} />)
                     })
                 }
 
             </View>
         </AppContent>
         <BottomNavigation pageId={1}/>
+        <ServiceBottomSheet />
     </View>)
 }

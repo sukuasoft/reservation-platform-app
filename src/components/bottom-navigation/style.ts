@@ -15,7 +15,6 @@ const bottomNavigationStyles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 5,
     elevation: 5, // Android
-    zIndex: 1,
   },
 });
 

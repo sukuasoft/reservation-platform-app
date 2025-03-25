@@ -17,8 +17,8 @@ export default function Reservations() {
         <Text>Lista de Reservas</Text>
 
         <View style={reservationsStyles.reservations}>
-          {[1, 2, 3, 4, 5, 6].map(() => {
-            return <ReservationCard />;
+          {[1, 2, 3, 4, 5, 6].map((value, key) => {
+            return <ReservationCard  key={key} />;
           })}
         </View>
       </AppContent>

@@ -5,6 +5,9 @@ import BottomNavigation from "@/components/bottom-navigation";
 import AppContent from "@/components/app-content";
 import TextButton from "@/components/text-button";
 import ServiceCard from "@/components/service-card";
+import MyBottomSheet from "@/components/bottom-sheet";
+import DepositBottomSheet from "@/components/deposit-bottom-sheet";
+import ReserveBottomSheet from "@/components/reserve-bottom-sheet";
 
 export default function Home(){
     return (<View style={{
@@ -36,5 +39,7 @@ export default function Home(){
             
         </AppContent>
         <BottomNavigation pageId={0} />
+      {/*} <DepositBottomSheet />
+      <ReserveBottomSheet /> */}
     </View>)
 }
