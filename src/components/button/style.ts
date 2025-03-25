@@ -6,6 +6,10 @@ const buttonStyles = StyleSheet.create({
         paddingHorizontal: 12, 
         paddingVertical: 6, 
         borderRadius: 10,
+        alignItems:'center', 
+        flexDirection: 'row', 
+        justifyContent:'center',
+        gap: 10
     }, 
     text: {
         textAlign: 'center'

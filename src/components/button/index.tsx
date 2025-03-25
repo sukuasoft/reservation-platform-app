@@ -5,14 +5,17 @@ import { AppColors } from "@/theme/colors";
 
 type ButtonProps =   TouchableOpacityProps & {
   children?: React.ReactNode |undefined, 
-  backgroundColor?: string |undefined
+  backgroundColor?: string |undefined, 
+  icon?:React.ReactNode, 
+  text:string
 }
 
-export default function Button ({children,backgroundColor=AppColors.primary, ...rest}: ButtonProps){
+export default function Button ({text,backgroundColor=AppColors.primary,icon, disabled, ...rest}: ButtonProps){
     return (<TouchableOpacity  style={{
         ...buttonStyles.button, 
-        backgroundColor
+        backgroundColor: !disabled ?  backgroundColor : '#aaaaaa'
     }} {...rest}>
-        <Text style={buttonStyles.text}>{children}</Text>
+        {icon}
+        <Text style={buttonStyles.text}>{text}</Text>
     </TouchableOpacity>)
 }

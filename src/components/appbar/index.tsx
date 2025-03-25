@@ -2,8 +2,10 @@ import { View, Image, Text } from "react-native";
 import appbarStyles from "./style";
 import TextButton from "../text-button";
 import { router } from "expo-router";
+import { useApp } from "@/hooks/app";
 
 export default function Appbar() {
+  const {user, logout} = useApp();
   return (
     <View style={appbarStyles.container}>
       <View style={appbarStyles.logoAndName}>
@@ -14,9 +16,10 @@ export default function Appbar() {
         <Text style={appbarStyles.nameApp}>ReserveJá</Text>
       </View>
       <View style={appbarStyles.rightActions}>
-        <TextButton textColor="#ff0000" onPress={()=>{
-            router.replace('/')
-        }}>Sair</TextButton>
+        {
+          user && 
+          <TextButton textColor="#ff0000" onPress={logout}>Sair</TextButton>
+        }
       </View>
     </View>
   );

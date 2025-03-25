@@ -1,6 +1,17 @@
-import { Image } from "expo-image";
+import { Image ,ImageProps} from "expo-image";
 import loadGifStyles from './style';
 
-export default function LoadGif (){
-    return (<Image style={loadGifStyles.gif} source={require('./../../assets/images/load.gif')} />)
+type LoadGifProps = {
+width?: number, 
+height?: number,
+}
+
+export default function LoadGif ({width=30, height=30}:LoadGifProps){
+    return (<Image style={{
+        
+        ...loadGifStyles.gif, 
+        width: width,
+        height: height
+  
+    }} source={require('./../../assets/images/load.gif')} />)
 }

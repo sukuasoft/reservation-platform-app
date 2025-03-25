@@ -5,8 +5,61 @@ import Input from '@/components/input';
 import Button from '@/components/button';
 import TextButton from '@/components/text-button';
 import { router } from 'expo-router';
+import { useState } from 'react';
+import { useApp } from '@/hooks/app';
+import useApi from '@/hooks/api';
+import Toast from 'react-native-toast-message';
+import LoadGif from '@/components/load-gif';
 
-export default function Login (){
+interface FormDataLogin {
+    email: string;
+    password: string;
+  }
+  
+  export default function Register() {
+    const { post } = useApi();
+    const {saveToken} =useApp();
+  
+  
+    const [formData, setFormData] = useState<FormDataLogin>({
+      email: "",    
+      password: "",
+    });
+  
+    const [isFetch, setIsFetch] =useState(false);
+  
+    async function login (){
+  
+      if (isFetch)return;
+ 
+  
+      setIsFetch(true);
+  
+  
+      const data = await post('/auth/login', formData);
+  
+      if(data.status == 200 || data.status == 201){
+          saveToken(data.data.token);
+        Toast.show({
+            type: 'success',
+            text1: 'Login com sucesso!'
+        })
+          
+          router.push('/home')
+          return;
+      }
+      else{
+        Toast.show({
+            type: 'error',
+            text1: 'Houve um erro, credencias inválidas'
+        })
+          
+      }
+  
+      setIsFetch(false);    
+  
+    }
+
     return (<View style={{
         height: '100%'
     }}>
@@ -20,11 +73,22 @@ export default function Login (){
             }} source={require('@/assets/images/login.png')} />
             <Text style={loginStyles.titleHeader}>Entre em sua conta</Text>
             <View style={loginStyles.formContainer}>
-                <Input placeholder='E-mail'/>
-                <Input placeholder='Senha'/>
-                <Button onPress={()=>{
-                    router.replace('/home')
-                }}>Entrar</Button>
+                <Input onChangeText={(value)=>{
+                    setFormData({
+                        ...formData, 
+                        email: value
+                    })
+                }} placeholder='E-mail'/>
+                <Input onChangeText={(value)=>{
+                    setFormData({
+                        ...formData, 
+                        password: value
+                    })
+                }} secureTextEntry={true} placeholder='Senha'/>
+                <Button onPress={login} text='Entrar' 
+                disabled={isFetch} icon={
+                    isFetch && <LoadGif width={20} height={20}/>
+                }/>
                 <View style={{
                     flexDirection: 'row', 
                     marginTop: 15, 
