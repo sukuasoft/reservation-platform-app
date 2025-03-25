@@ -25,7 +25,7 @@ export default function Home() {
     const [services, setServices] = useState<Service[]>([]);
     
     const [isFetchServices, setIsFetchServices] = useState(false);
-    const [serviceSelected, setServiceSelected]=useState<Service |undefined>();
+    const [serviceSelected, setServiceSelected]=useState<Service |null>(null);
   
     async function fetchServices() {
       setIsFetchServices(true);
@@ -90,7 +90,7 @@ export default function Home() {
         )}
       </AppContent>
       <BottomNavigation pageId={0} />
-      {showDeposit  &&   <DepositBottomSheet  onCloseSheet={()=>{
+      {showDeposit  &&   <DepositBottomSheet serviceSelected={serviceSelected}  onCloseSheet={()=>{
         setShowDeposit(false);
       }} />}
       {showReserve  &&   <ReserveBottomSheet onCloseSheet={()=>{

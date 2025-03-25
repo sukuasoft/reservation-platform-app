@@ -7,9 +7,10 @@ import reserveBottomSheetStyles from "./style"
 
 
 type ReserveBottomSheetProps =  MyBottomSheetProps &{
+    serviceSelected:Service|null
 };
 
-export default function ReserveBottomSheet ({onCloseSheet}: ReserveBottomSheetProps){
+export default function ReserveBottomSheet ({onCloseSheet, serviceSelected}: ReserveBottomSheetProps){
     return  (<MyBottomSheet onCloseSheet={onCloseSheet} snapPoints={['55%', '60%']} >
         <View style={reserveBottomSheetStyles.container}>
         <Text style={reserveBottomSheetStyles.headline}>Criar reserva</Text>
