@@ -90,10 +90,10 @@ export default function Home() {
         )}
       </AppContent>
       <BottomNavigation pageId={0} />
-      {showDeposit  &&   <DepositBottomSheet serviceSelected={serviceSelected}  onCloseSheet={()=>{
+      {showDeposit  &&   <DepositBottomSheet   onCloseSheet={()=>{
         setShowDeposit(false);
       }} />}
-      {showReserve  &&   <ReserveBottomSheet onCloseSheet={()=>{
+      {showReserve  &&   <ReserveBottomSheet serviceSelected={serviceSelected} onCloseSheet={()=>{
         setShowReserve(false);
       }}  />}
     </View>
