@@ -42,3 +42,9 @@ Este é um aplicativo móvel desenvolvido com [Expo](https://expo.dev/), de plat
 - `npm run android`: Executa o app em um emulador Android
 - `npm run ios`: Executa o app em um simulador iOS
 - `npm run web`: Executa o app em um navegador web
+
+## Preview do app
+
+Você pode visualizar a versão mais recente do aplicativo através do link abaixo:
+
+[Preview do app](https://expo.dev/preview/update?message=Primeira%20versao&updateRuntimeVersion=1.0.0&createdAt=2025-03-25T19%3A21%3A02.221Z&slug=exp&projectId=a2edca03-fc34-4730-9bea-0594b1df1b53&group=b46d138b-aeb9-4d1c-b90d-b4e86a07ab8d)
